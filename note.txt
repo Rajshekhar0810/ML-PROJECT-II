@@ -1,0 +1,7 @@
+Git status indicator shown by VS Code.
+U = Untracked, that means the file is new and not yet added to Git
+A = Added (staged for commit)
+D = Deleted
+C = Copied
+R = Renamed
+M = Modified → The file has been changed locally, but those changes are not yet committed to Git

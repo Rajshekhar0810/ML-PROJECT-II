@@ -1,3 +1,9 @@
 python-dotenv
 pandas
 numpy
+pymongo
+certifi
+
+
+##-e .   # -e . is refering to  setup.py file and execute the entire code in it except "-e ." when we pip install -r requiremets.txt
+# -e . is used at the end of the complete project when we have to install the entire project as a package.

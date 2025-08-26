@@ -5,3 +5,14 @@ D = Deleted
 C = Copied
 R = Renamed
 M = Modified → The file has been changed locally, but those changes are not yet committed to Git
+
+Log file
+datetime.now() -> This gets the current date and time from your system.
+strftime(time stamp) -> formats a datetime object into a string using the pattern you provide.
+f"{ ... }.log" -> This is an f-string (formatted string literal).It takes the formatted datetime string and appends .log at the end.
+Final result: "2025_08_27_00_05_23.log"
+.log is just a file extension
+.log tells the operating system and users that this file is a log file.
+Log files are usually plain text files that store messages, events, or debugging info from programs
+
+os.getcwd() → current working directory, i.e., where your project folder lives on the drive(E:\ML-Project-II)

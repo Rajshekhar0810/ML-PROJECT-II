@@ -16,3 +16,56 @@ Final result: "2025_08_27_00_05_23.log"
 Log files are usually plain text files that store messages, events, or debugging info from programs
 
 os.getcwd() → current working directory, i.e., where your project folder lives on the drive(E:\ML-Project-II)
+
+
+push_data
+
+records = list(json.loads(data.T.to_json()).values())
+1. data.to_json()  -->  pandas.DataFrame.to_json() converts the DataFrame → JSON string.
+By default, it outputs in column-oriented format (each column is a key).
+Example DataFrame:
+   id   name   age
+0   1    Raj    25
+1   2 Sweety    30
+
+print(data.to_json())
+Output:  {"id":{"0":1,"1":2},"name":{"0":"Raj","1":"Sweety"},"age":{"0":25,"1":30}}
+
+👉 Notice: keys are columns, values are row-indexed.
+
+2. data.T (transpose)
+.T swaps rows ↔ columns.
+After transpose, the same DataFrame becomes:
+       0       1
+id     1       2
+name  Raj  Sweety
+age    25     30
+
+Now, to_json() produces:  {"0":{"id":1,"name":"Raj","age":25},"1":{"id":2,"name":"Sweety","age":30}}
+
+👉 Now each row is a JSON object (much better for inserting into MongoDB).
+
+So, transpose is important here to flip orientation:
+Without .T → JSON grouped by columns.
+With .T → JSON grouped by rows (like records).
+
+3. json.loads(...)
+Converts the JSON string → Python dictionary.
+So:
+json.loads('{"0":{"id":1,"name":"Raj","age":25},"1":{"id":2,"name":"Sweety","age":30}}')
+Becomes:
+{
+  "0": {"id": 1, "name": "Raj", "age": 25},
+  "1": {"id": 2, "name": "Sweety", "age": 30}
+}
+
+4. .values()
+Extracts only the dictionary values (the row objects), ignoring keys "0", "1".
+
+5. list() --> Converts it into a list of dictionaries.
+[
+  {"id": 1, "name": "Raj", "age": 25},
+  {"id": 2, "name": "Sweety", "age": 30}
+]
+
+

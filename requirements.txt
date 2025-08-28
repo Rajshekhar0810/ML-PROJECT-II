@@ -4,7 +4,7 @@ numpy
 pymongo
 certifi
 pymongo[srv]==3.6
-
+scikit-learn
 
 
 ##-e .   # -e . is refering to  setup.py file and execute the entire code in it except "-e ." when we pip install -r requiremets.txt

@@ -5,7 +5,7 @@ D = Deleted
 C = Copied
 R = Renamed
 M = Modified → The file has been changed locally, but those changes are not yet committed to Git
-
+------------------------------------------------------------------------------------------------------------
 Log file
 datetime.now() -> This gets the current date and time from your system.
 strftime(time stamp) -> formats a datetime object into a string using the pattern you provide.
@@ -17,7 +17,7 @@ Log files are usually plain text files that store messages, events, or debugging
 
 os.getcwd() → current working directory, i.e., where your project folder lives on the drive(E:\ML-Project-II)
 
-
+----------------------------------------------------------------------------------------------------------------
 push_data
 
 records = list(json.loads(data.T.to_json()).values())
@@ -67,5 +67,13 @@ Extracts only the dictionary values (the row objects), ignoring keys "0", "1".
   {"id": 1, "name": "Raj", "age": 25},
   {"id": 2, "name": "Sweety", "age": 30}
 ]
+-----------------------------------------------------------------------------------
 
+TrainingPipelineConfig → Sets up folders for artifacts
+
+This class is like a project organizer.
+
+Every time you run the pipeline, it creates a new folder with timestamp inside Artifacts/.
+
+All outputs of that run will be saved there.
 
